@@ -10,101 +10,117 @@
 </head>
 
 <body>
-    <div id="spinner" style="display: block">
-        <div id="mainbox">
-            <div id="box">
-                <ul class="circle-outer" id="outer-circle">
-                    <li>
-                        <div class="text 1">1</div>
-                    </li>
-                    <li>
-                        <div class="text 1">2</div>
-                    </li>
-                    <li>
-                        <div class="text 2">3</div>
-                    </li>
-                    <li>
-                        <div class="text 2">4</div>
-                    </li>
-                    <li>
-                        <div class="text 3">5</div>
-                    </li>
-                    <li>
-                        <div class="text 3">6</div>
-                    </li>
-                    <li>
-                        <div class="text 4">7</div>
-                    </li>
-                    <li>
-                        <div class="text 4">8</div>
-                    </li>
-                    <li>
-                        <div class="text 5">9</div>
-                    </li>
-                    <li>
-                        <div class="text 5">10</div>
-                    </li>
-                    <ul class="circle-inner">
-                        <li class="li-none">
-                            <div class="text left num-1" style="background-color: white">
-                                1
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text right num-2" style="background-color: white">
-                                2
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text left num-3" style="background-color: white">
-                                3
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text right num-4" style="background-color: white">
-                                4
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text left num-5" style="background-color: white">
-                                5
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text right num-6" style="background-color: white">
-                                6
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text left num-7" style="background-color: white">
-                                7
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text right num-8" style="background-color: white">
-                                8
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text left num-9" style="background-color: white">
-                                9
-                            </div>
-                        </li>
-                        <li class="li-none">
-                            <div class="text right num-10" style="background-color: white">
-                                10
-                            </div>
-                        </li>
-                    </ul>
-                </ul>
+    <h1 class="heading" style="text-align: center">Circle of Life</h1>
+    <div class="container">
+        <div class="flex-container">
+            <div style="display: flex; flex-direction: column">
+                <div class="image-wrapper">
+                    <img src="./images/Feb-Business_9.jpg" alt="" />
+                </div>
+                <div class="input-container">
+                    <input type="number" class="input" />
+                    <input type="number" class="input" />
+                    <input type="number" class="input" />
+                    <input type="number" class="input" />
+                </div>
+                <div class="" style="margin-left: 150px; margin-top: 20px">
+                    <button class="button">Submit</button>
+                </div>
             </div>
         </div>
-        <div></div>
-        <button onclick="left()">left</button>
-        <button onclick="right()">right</button>
-        <button onclick="getInner()">Inner</button>
-        <button onclick="getOuter()">outer</button>
+
+        <!-- Spinner -->
+        <div class="" style="margin-left: 200px">
+            <ul class="circle-outer" id="outer-circle">
+                <li>
+                    <div class="text 1">1</div>
+                </li>
+                <li>
+                    <div class="text 1">2</div>
+                </li>
+                <li>
+                    <div class="text 2">3</div>
+                </li>
+                <li>
+                    <div class="text 2">4</div>
+                </li>
+                <li>
+                    <div class="text 3">5</div>
+                </li>
+                <li>
+                    <div class="text 3">6</div>
+                </li>
+                <li>
+                    <div class="text 4">7</div>
+                </li>
+                <li>
+                    <div class="text 4">8</div>
+                </li>
+                <li>
+                    <div class="text 5">9</div>
+                </li>
+                <li>
+                    <div class="text 5">10</div>
+                </li>
+                <ul class="circle-inner">
+                    <li class="li-none">
+                        <div class="text left num-1" style="background-color: white">
+                            1
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text right num-2" style="background-color: white">
+                            2
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text left num-3" style="background-color: white">
+                            3
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text right num-4" style="background-color: white">
+                            4
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text left num-5" style="background-color: white">
+                            5
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text right num-6" style="background-color: white">
+                            6
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text left num-7" style="background-color: white">
+                            7
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text right num-8" style="background-color: white">
+                            8
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text left num-9" style="background-color: white">
+                            9
+                        </div>
+                    </li>
+                    <li class="li-none">
+                        <div class="text right num-10" style="background-color: white">
+                            10
+                        </div>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+        <div>
+            <button>left</button>
+        </div>
     </div>
+
     <script src="./scrip.js"></script>
 </body>
 
