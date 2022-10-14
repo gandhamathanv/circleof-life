@@ -1,4 +1,5 @@
-const baseColor = "yellow";
+let baseColor = "yellow";
+let passwordIndex = 0;
 const keys = Array.from(Array(10).keys());
 
 const model = [
@@ -149,12 +150,41 @@ function right() {
 
 function getInner() {
     const value = model.find((el) => el.colour == baseColor);
-    console.log(value.inner);
+    if (passwordIndex == 0) {
+        document.getElementById("opt-1").value = value.inner;
+    } else if (passwordIndex == 1) {
+        document.getElementById("opt-2").value = value.inner;
+    } else if (passwordIndex == 2) {
+        document.getElementById("opt-3").value = value.inner;
+    } else if (passwordIndex == 3) {
+        document.getElementById("opt-4").value = value.inner;
+    }
+    passwordIndex += 1;
 }
 
 function getOuter() {
     const value = model.find((el) => el.colour == baseColor);
-    console.log(value.outer);
+    if (passwordIndex == 0) {
+        document.getElementById("opt-1").value = value.outer;
+    } else if (passwordIndex == 1) {
+        document.getElementById("opt-2").value = value.outer;
+    } else if (passwordIndex == 2) {
+        document.getElementById("opt-3").value = value.outer;
+    } else if (passwordIndex == 3) {
+        document.getElementById("opt-4").value = value.outer;
+    }
+    passwordIndex += 1;
+}
+
+function submit() {
+    const value1 = document.getElementById("opt-1").value;
+    const value2 = document.getElementById("opt-2").value;
+    const value3 = document.getElementById("opt-3").value;
+    const value4 = document.getElementById("opt-4").value;
+    const password =
+        String(value1) + String(value2) + String(value3) + String(value4);
+    console.log(Number(password));
+    console.log(Number(password) === numberNumber);
 }
 // document.getElementById("spinner").style.display = "block";
 
@@ -206,3 +236,32 @@ function hasNoValue(index) {
 
     return true;
 }
+const correctPassword = window.prompt("enter a number");
+baseColor = Number(window.prompt("1.red\n2.green\n3.blue\n4.yellow\n5.violet"));
+let numberNumber = null;
+const setPassword = () => {
+    numberNumber = Number(correctPassword);
+    switch (baseColor) {
+        case 1:
+            baseColor = "red";
+
+            break;
+        case 2:
+            baseColor = "green";
+            break;
+        case 3:
+            baseColor = "blue";
+            break;
+        case 4:
+            baseColor = "yellow";
+            break;
+        case 5:
+            baseColor = "violet";
+            break;
+
+        default:
+            break;
+    }
+};
+
+setPassword();

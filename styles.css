@@ -202,8 +202,9 @@ li:nth-child(12) .text {
 
 .right {
     position: absolute;
-    top: 11px;
-    left: -178px;
+    /* position: absolute; */
+    top: 17px;
+    left: -163px;
 }
 
 .text {

@@ -18,13 +18,13 @@
                     <img src="./images/Feb-Business_9.jpg" alt="" />
                 </div>
                 <div class="input-container">
-                    <input type="number" class="input" />
-                    <input type="number" class="input" />
-                    <input type="number" class="input" />
-                    <input type="number" class="input" />
+                    <input type="password" id="opt-1" class="input" />
+                    <input type="password" id="opt-2" class="input" />
+                    <input type="password" id="opt-3" class="input" />
+                    <input type="password" id="opt-4" class="input" />
                 </div>
                 <div class="" style="margin-left: 150px; margin-top: 20px">
-                    <button class="button">Submit</button>
+                    <button class="button" onclick="submit()">Submit</button>
                 </div>
             </div>
         </div>
@@ -115,9 +115,22 @@
                     </li>
                 </ul>
             </ul>
+            <div style="display: flex">
+                <div class="" style="margin-left: 150px; margin-top: 20px">
+                    <button class="button" onclick="left()">left</button>
+                </div>
+                <div class="" style="margin-left: 150px; margin-top: 20px">
+                    <button class="button" onclick="right()">right</button>
+                </div>
+            </div>
         </div>
         <div>
-            <button>left</button>
+            <div class="" style="margin-left: 150px; margin-top: 20px">
+                <button class="button" onclick="getInner()">inner</button>
+            </div>
+            <div class="" style="margin-left: 150px; margin-top: 20px">
+                <button class="button" onclick="getOuter()">outer</button>
+            </div>
         </div>
     </div>
 
