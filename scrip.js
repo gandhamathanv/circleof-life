@@ -1,4 +1,6 @@
+const baseColor = "yellow";
 const keys = Array.from(Array(10).keys());
+
 const model = [
     { colour: "red", inner: 1, outer: 2 },
     { colour: "green", inner: 3, outer: 4 },
@@ -45,8 +47,12 @@ function getRandomArbitrary(min, max) {
 const getRandom = (key) => {
     let keysRemove = key;
     console.log(keysRemove);
-    const index = Math.floor(getRandomArbitrary(0, keysRemove.length + 1));
-    const value = keysRemove[index];
+    let index = Math.floor(getRandomArbitrary(0, keysRemove.length + 1));
+    let value = keysRemove[index];
+    while (value == undefined) {
+        index = Math.floor(getRandomArbitrary(0, keysRemove.length + 1));
+        value = keysRemove[index];
+    }
     keysRemove = keysRemove.filter((_, ind) => ind != index);
     return { keysRemove, value };
 };
@@ -55,35 +61,40 @@ const setRandom = () => {
 
     // SET 10 NUMBER
     for (let index = 0; index < 10; index++) {
-        const { value, keysRemove } = getRandom(key);
-        key = keysRemove;
-        // while (!value) {
-        //     const { val, keysRemove } = getRandom(key);
-        //     value = val;
-        //     key = keysRemove;
-        //     console.log(value);
-        // }
+        let data = getRandom(key);
+        let value = data.value;
+        key = data.keysRemove;
 
         switch (index) {
+            case 0:
+                model[0].inner = value;
+                break;
             case 1:
+                model[0].outer = value;
                 break;
             case 2:
+                model[1].inner = value;
                 break;
             case 3:
+                model[1].outer = value;
                 break;
             case 4:
+                model[2].inner = value;
                 break;
             case 5:
+                model[2].outer = value;
                 break;
             case 6:
+                model[3].inner = value;
                 break;
             case 7:
+                model[3].outer = value;
                 break;
             case 8:
+                model[4].inner = value;
                 break;
             case 9:
-                break;
-            case 0:
+                model[4].outer = value;
                 break;
 
             default:
@@ -91,8 +102,8 @@ const setRandom = () => {
         }
     }
 };
+setRandom();
 const UI = () => {
-    setRandom();
     model.forEach((el, index) => {
         // console.log({ el }, index, index + 1);
         setColor(el.colour, list[index]);
@@ -108,4 +119,90 @@ const UI = () => {
 };
 
 // SET UI
+const rotate = () => {
+    console.log(outerCircle);
+};
 UI();
+
+// ROTATE
+let deg = 0;
+
+function left() {
+    let temp = model[0].colour;
+    model[0].colour = model[1].colour;
+    model[1].colour = model[2].colour;
+    model[2].colour = model[3].colour;
+    model[3].colour = model[4].colour;
+    model[4].colour = temp;
+    UI();
+}
+
+function right() {
+    let temp = model[4].colour;
+    model[4].colour = model[3].colour;
+    model[3].colour = model[2].colour;
+    model[2].colour = model[1].colour;
+    model[1].colour = model[0].colour;
+    model[0].colour = temp;
+    UI();
+}
+
+function getInner() {
+    const value = model.find((el) => el.colour == baseColor);
+    console.log(value.inner);
+}
+
+function getOuter() {
+    const value = model.find((el) => el.colour == baseColor);
+    console.log(value.outer);
+}
+// document.getElementById("spinner").style.display = "block";
+
+// INPUT pin
+
+console.clear();
+let inputs = document.querySelectorAll("input");
+let values = Array(4);
+let clipData;
+inputs[0].focus();
+
+inputs.forEach((tag, index) => {
+    tag.addEventListener("keyup", (event) => {
+        if (event.code === "Backspace" && hasNoValue(index)) {
+            if (index > 0) inputs[index - 1].focus();
+        }
+
+        //else if any input move focus to next or out
+        else if (tag.value !== "") {
+            index < inputs.length - 1 ? inputs[index + 1].focus() : tag.blur();
+        }
+
+        //add val to array to track prev vals
+        values[index] = event.target.value;
+    });
+
+    tag.addEventListener("input", () => {
+        //replace digit if already exists
+        if (tag.value > 10) {
+            tag.value = tag.value % 10;
+        }
+    });
+
+    tag.addEventListener("paste", (event) => {
+        event.preventDefault();
+        clipData = event.clipboardData.getData("text/plain").split("");
+        filldata(index);
+    });
+});
+
+function filldata(index) {
+    for (let i = index; i < inputs.length; i++) {
+        inputs[i].value = clipData.shift();
+    }
+}
+
+function hasNoValue(index) {
+    if (values[index] || values[index] === 0) return false;
+
+    return true;
+}

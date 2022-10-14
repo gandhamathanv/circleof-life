@@ -151,3 +151,192 @@ li:nth-child(12) .text {
 .text {
     font-size: 25px;
 }
+
+
+/* RoTATE */
+
+.mainbox {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+.mainbox:after {
+    position: absolute;
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    overflow: hidden;
+    transition: all ease 2s;
+}
+
+.spin:active {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+}
+
+.mainbox.animate:after {
+    animation: animateArrow 0.7s ease infinite;
+}
+
+
+/* @keyframes animateArrow {
+      height:-40px;
+    } */
+
+.dropbtn {
+    background: #d00c0c;
+    color: white;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:after {
+    content: "v";
+    padding-left: 10px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background: #f1f1f1;
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+    background: #c0392b;
+}
+
+.row {
+    margin: auto;
+    /* center horizontally */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+}
+
+input {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    max-width: 2rem;
+    text-align: center;
+}
+
+
+/* remove the up/down spinner in number input
+     source - https://css-tricks.com/snippets/css/turn-off-number-input-spinners/
+  */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* INPUT */
+
+* {
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff8080;
+}
+
+.custome-select {
+    background-color: #ddd;
+    position: relative;
+    width: 300px;
+    height: 70px;
+    z-index: 3;
+}
+
+.custome-select select {
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    z-index: 2;
+    padding: 0 10px;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.custome-select select:hover {
+    cursor: pointer;
+}
+
+.custome-select:after {
+    content: "▼";
+    font-size: 25px;
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    background-color: #ff8080;
+    z-index: 1;
+    right: 20px;
+    top: 20px;
+    text-align: center;
+}
